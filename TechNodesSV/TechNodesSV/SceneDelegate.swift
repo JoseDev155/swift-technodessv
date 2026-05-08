@@ -13,10 +13,48 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        let window = UIWindow(windowScene: windowScene)
+        
+        // Setup Shared Dependencies
+        let networkService = NetworkService()
+        let nodeRepository = NodeRepository(networkService: networkService)
+        let getNodesUseCase = GetNodesUseCase(repository: nodeRepository)
+
+        // Setup View Controllers
+        let locationService = LocationService()
+        let mapViewModel = MapViewModel(getNodesUseCase: getNodesUseCase, locationService: locationService)
+        let mapVC = MapViewController(viewModel: mapViewModel)
+        let mapNav = UINavigationController(rootViewController: mapVC)
+        mapNav.tabBarItem = UITabBarItem(title: "tab_map".localized, image: UIImage(systemName: "map"), tag: 0)
+        
+        // Setup Dependencies for Directory
+        let directoryViewModel = DirectoryViewModel(getNodesUseCase: getNodesUseCase)
+        
+        let directoryVC = DirectoryViewController(viewModel: directoryViewModel)
+        let directoryNav = UINavigationController(rootViewController: directoryVC)
+        directoryNav.tabBarItem = UITabBarItem(title: "tab_directory".localized, image: UIImage(systemName: "list.bullet"), tag: 1)
+        
+        // Setup Dependencies for Inventory
+        let inventoryRepository = InventoryRepository()
+        let getInventoryUseCase = GetInventoryUseCase(repository: inventoryRepository)
+        let saveComponentUseCase = SaveComponentUseCase(repository: inventoryRepository)
+        let deleteComponentUseCase = DeleteComponentUseCase(repository: inventoryRepository)
+        let inventoryViewModel = InventoryViewModel(getInventoryUseCase: getInventoryUseCase, saveComponentUseCase: saveComponentUseCase, deleteComponentUseCase: deleteComponentUseCase)
+        
+        let inventoryVC = InventoryViewController(viewModel: inventoryViewModel)
+        let inventoryNav = UINavigationController(rootViewController: inventoryVC)
+        inventoryNav.tabBarItem = UITabBarItem(title: "tab_inventory".localized, image: UIImage(systemName: "archivebox"), tag: 2)
+        
+        // Setup TabBar
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [mapNav, directoryNav, inventoryNav]
+        
+        window.rootViewController = tabBarController
+        window.makeKeyAndVisible()
+        
+        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

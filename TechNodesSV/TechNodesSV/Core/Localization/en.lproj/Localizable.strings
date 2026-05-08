@@ -1,0 +1,9 @@
+// English Localization
+"tab_map" = "Map";
+"tab_directory" = "Directory";
+"tab_inventory" = "Inventory";
+"loading" = "Loading...";
+"error" = "Error";
+"ok" = "OK";
+"save" = "Save";
+"delete" = "Delete";

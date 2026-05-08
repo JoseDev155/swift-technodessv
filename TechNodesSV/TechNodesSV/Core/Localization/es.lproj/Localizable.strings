@@ -1,0 +1,9 @@
+// Spanish Localization
+"tab_map" = "Mapa";
+"tab_directory" = "Directorio";
+"tab_inventory" = "Inventario";
+"loading" = "Cargando...";
+"error" = "Error";
+"ok" = "Aceptar";
+"save" = "Guardar";
+"delete" = "Eliminar";

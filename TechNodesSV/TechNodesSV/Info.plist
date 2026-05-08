@@ -15,11 +15,11 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>TechNodes SV necesita tu ubicación para mostrarte los fab-labs y tiendas más cercanos en el mapa.</string>
 </dict>
 </plist>
