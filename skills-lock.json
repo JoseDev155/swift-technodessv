@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "mapkit": {
+      "source": "dpearson2699/swift-ios-skills",
+      "sourceType": "github",
+      "skillPath": "skills/mapkit/SKILL.md",
+      "computedHash": "c624b192bbc8fe81a23d3dbf12e9fee5fd182f0bf4378ad5a6822543a207e9e8"
+    },
+    "swiftdata-coredata-persistence": {
+      "source": "dagba/ios-mcp",
+      "sourceType": "github",
+      "skillPath": "skills/swiftdata-coredata-persistence/SKILL.md",
+      "computedHash": "7813929e2ee415ef03180fc14cabd110828c36fe65bd8dc45d74c7f74b8ffb72"
+    },
+    "urlsession-code-review": {
+      "source": "existential-birds/beagle",
+      "sourceType": "github",
+      "skillPath": "plugins/beagle-ios/skills/urlsession-code-review/SKILL.md",
+      "computedHash": "26f02b6b00f9d26cac6b198771ecf3069dfd1a7e6019eb42eff5d4bc0903f6d4"
+    }
+  }
+}
