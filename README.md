@@ -5,7 +5,7 @@ Repositorio de app hecha en Swift. Tarea en parejas.
 ## Tecnologías usadas
 
 * Hypervisor: **VMware Workstation Pro**
-* Sistema Operativo: **macOS Big Sur**
+* Sistema Operativo: **macOS Sequoia**
 * IDE: **Xcode 16.4**
 * Lenguaje de programación: **Swift 5.0**
 
