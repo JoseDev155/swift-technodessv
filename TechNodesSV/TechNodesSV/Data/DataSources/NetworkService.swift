@@ -12,11 +12,8 @@ protocol NetworkServiceProtocol {
 }
 
 class NetworkService: NetworkServiceProtocol {
-    // URL to a gist or raw JSON mock
-    private let urlString = "https://raw.githubusercontent.com/mock-tech-nodes/nodes/main/nodes.json"
-    
     func fetchNodes() async throws -> [TechNode] {
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: Environment.baseURL) else {
             throw NetworkError.invalidURL
         }
         
